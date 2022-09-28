@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+// ---- Color
+$white: #ffffff;
+$black: #000000;
+
+// - Header
+$header-color: #3b3e45;
+$header-bg: #ffffff;
+
+// - Accent
+$accent-color-1: #ffa246;
+$accent-color-2: #35e185;
+$accent-color-3: #6688ff;
+$accent-color-4: #b266ff;
+$accent-color-5: #66d1ff;
+$accent-color-6: #ff66d4;
+$accent-color-7: #ff6666;
+
+// - Buttons
+$button-add-bg: #2cbe82;
+$button-add-color: $white;
+$button-delete-bg: #da2b40;
+$button-delete-color: $white;
+
+// ---- Font Family
+$primary-font-family: "Poppins", sans-serif;
+
+// ---- Font Sizes
+$core-font-size: 1.6rem;

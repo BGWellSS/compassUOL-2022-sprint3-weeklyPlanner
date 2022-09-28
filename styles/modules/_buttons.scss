@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+// ---- Buttons
+.button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 10px;
+
+  & ~ .button {
+    margin-left: 16px;
+  }
+}
+.button-add {
+  background-color: $button-add-bg;
+  color: $button-add-color;
+}
+.button-delete {
+  background-color: $button-delete-bg;
+  color: $button-delete-color;
+}

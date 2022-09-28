@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+// ---- Base typo
+body {
+  font-family: $primary-font-family;
+  font-size: $core-font-size;
+}
+
+// ---- Modules
+// - Buttons
+.button {
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+// ---- Header
+.header-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.header-titleDescription {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.timer-hour {
+  font-size: 4rem;
+  font-weight: 400;
+}
+.timer-date {
+  font-size: 2rem;
+  font-weight: 400;
+}
