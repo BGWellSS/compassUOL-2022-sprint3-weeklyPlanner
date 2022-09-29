@@ -36,6 +36,31 @@
         <p class="timer-date">xx de xxxxxxxx de xxxx</p>
       </div>
     </header>
+    <main class="planner-aria">
+      <section class="activity-insert">
+        <form action=".">
+          <input type="text" placeholder="Atividade" class="activity-text" />
+          <input list="week-date" class="activity-day" />
+          <datalist id="week-date">
+            <option value="Segunda-feira"></option>
+            <option value="Terça-feira"></option>
+            <option value="Quarta-feira"></option>
+            <option value="Quinta-feira"></option>
+            <option value="Sexta-feira"></option>
+            <option value="Sábado"></option>
+            <option value="Domingo"></option>
+          </datalist>
+
+          <input id="appt-time" type="time" name="appt-time" value="" />
+          <button class="activity-add">Adicionar Atividade</button>
+          <button class="activity-removeAll">Excluir Todos</button>
+        </form>
+      </section>
+      <section class="activity-aria">
+        <div class="planner-aria-header"></div>
+        <div class="planner-aria-activitys"></div>
+      </section>
+    </main>
     <script src="./js/planner.min.js"></script>
     <script src="./js/planner.js"></script>
   </body>
