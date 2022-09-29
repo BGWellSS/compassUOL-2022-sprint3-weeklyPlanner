@@ -24,10 +24,10 @@
         </p>
       </div>
       <div class="header-buttonsContainer">
-        <button class="button button-add saver-localStorage">
+        <button type="button" class="button button-add saver-localStorage">
           Salvar localStorage
         </button>
-        <button class="button button-delete delete-localStorage">
+        <button type="button" class="button button-delete delete-localStorage">
           Excluir localStorage
         </button>
       </div>
@@ -36,24 +36,24 @@
         <p class="timer-date">xx de xxxxxxxx de xxxx</p>
       </div>
     </header>
-    <main class="planner-aria">
+    <main class="main-content planner-aria">
       <section class="activity-insert">
-        <form action=".">
-          <input type="text" placeholder="Atividade" class="activity-text" />
-          <input list="week-date" class="activity-day" />
-          <datalist id="week-date">
-            <option value="Segunda-feira"></option>
-            <option value="Terça-feira"></option>
-            <option value="Quarta-feira"></option>
-            <option value="Quinta-feira"></option>
-            <option value="Sexta-feira"></option>
-            <option value="Sábado"></option>
-            <option value="Domingo"></option>
-          </datalist>
-
-          <input id="appt-time" type="time" name="appt-time" value="" />
-          <button class="activity-add">Adicionar Atividade</button>
-          <button class="activity-removeAll">Excluir Todos</button>
+        <form action="." class="activity-form">
+          <input type="text" title="Descrição da atividade" placeholder="Atividade" name="act-text" class="activity-input activity-text" />
+          <select title="Seletor de dia da semana" name="act-weekDay" class="activity-input activity-day" >
+            <optgroup label="Dia da semana">
+              <option value="1">Segunda-feira</option>
+              <option value="2">Terça-feira</option>
+              <option value="3">Quarta-feira</option>
+              <option value="4">Quinta-feira</option>
+              <option value="5">Sexta-feira</option>
+              <option value="6">Sábado</option>
+              <option value="7">Domingo</option>
+            </optgroup>
+          </select>
+          <input type="time" title="Horário da atividade" name="act-time" value="00:00" class="activity-input activity-time"/>
+          <button type="button" class="button button-add activity-add"><i class="fa-solid fa-plus"></i> Adicionar Atividade</button>
+          <button type="button" class="button button-delete activity-removeAll"><i class="fa-solid fa-minus"></i> Excluir Todos</button>
         </form>
       </section>
       <section class="activity-aria">
