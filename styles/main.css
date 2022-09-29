@@ -1,3 +1,4 @@
+@import "./vendors/fontawesome/css/all.css";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -343,6 +344,22 @@ html {
 }
 
 body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+body::after {
+  content: "";
+  position: absolute;
+  right: -165px;
+  bottom: -247.5px;
+  width: 825px;
+  height: 825px;
+  background: url("./../../images/logoCompasso.svg") no-repeat;
+  opacity: 0.7;
+}
+
+body {
   font-family: "Poppins", sans-serif;
   font-size: 1.6rem;
 }
@@ -398,6 +415,59 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.main-content {
+  color: #3b3e45;
+  background-color: transparent;
+}
+
+.planner-aria {
+  position: relative;
+  box-sizing: border-box;
+  height: 85vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding: 16px;
+}
+
+.activity-form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.activity-input {
+  padding: 12px;
+  border: 1px solid #2cbe82;
+  border-radius: 10px;
+}
+.activity-input:focus {
+  outline: none;
+}
+
+.activity-text {
+  box-sizing: border-box;
+  width: 30%;
+  padding-left: 60px;
+}
+
+.activity-day {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #3b3e45 50%), linear-gradient(135deg, #3b3e45 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.activity-day:focus {
+  background-image: linear-gradient(45deg, #2cbe82 50%, transparent 50%), linear-gradient(135deg, transparent 50%, #2cbe82 50%);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  border-color: #2cbe82;
+  outline: 0;
 }
 
 .button {

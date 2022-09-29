@@ -3,10 +3,16 @@
 // ---- Color
 $white: #ffffff;
 $black: #000000;
+$add-color: #2cbe82;
+$delete-color: #da2b40;
 
 // - Header
 $header-color: #3b3e45;
 $header-bg: #ffffff;
+
+// - Main content
+$mainContent-color: #3b3e45;
+$mainContent-bg: transparent;
 
 // - Accent
 $accent-color-1: #ffa246;
@@ -18,9 +24,9 @@ $accent-color-6: #ff66d4;
 $accent-color-7: #ff6666;
 
 // - Buttons
-$button-add-bg: #2cbe82;
+$button-add-bg: $add-color;
 $button-add-color: $white;
-$button-delete-bg: #da2b40;
+$button-delete-bg: $delete-color;
 $button-delete-color: $white;
 
 // ---- Font Family
