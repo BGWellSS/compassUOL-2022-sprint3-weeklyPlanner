@@ -18,3 +18,40 @@
   background-color: $button-delete-bg;
   color: $button-delete-color;
 }
+
+// ---- Week Buttons
+.calendar-week {
+  background-color: $mainContent-color;
+  color: $white;
+  min-width: 150px;
+  padding: 7px 8px;
+  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+  border-radius: 9px 9px 0px 0px;
+  border: none;
+  white-space: nowrap;
+
+  &:not(.collapsed) {
+    min-width: 190px;
+  }
+}
+.calendar-mon {
+  background-color: $accent-color-1;
+}
+.calendar-tue {
+  background-color: $accent-color-2;
+}
+.calendar-wed {
+  background-color: $accent-color-3;
+}
+.calendar-thu {
+  background-color: $accent-color-4;
+}
+.calendar-fri {
+  background-color: $accent-color-5;
+}
+.calendar-sat {
+  background-color: $accent-color-6;
+}
+.calendar-sun {
+  background-color: $accent-color-7;
+}

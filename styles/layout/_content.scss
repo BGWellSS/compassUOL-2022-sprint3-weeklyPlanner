@@ -39,29 +39,55 @@
   -webkit-appearance: none;
   -moz-appearance: none;
 
-  background-image:
-    linear-gradient(45deg, transparent 50%, $mainContent-color 50%),
+  background-image: linear-gradient(
+      45deg,
+      transparent 50%,
+      $mainContent-color 50%
+    ),
     linear-gradient(135deg, $mainContent-color 50%, transparent 50%);
-  background-position:
-    calc(100% - 20px) calc(1em + 2px),
+  background-position: calc(100% - 20px) calc(1em + 2px),
     calc(100% - 15px) calc(1em + 2px);
-  background-size:
-    5px 5px,
-    5px 5px;
+  background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
 
   &:focus {
-    background-image:
-      linear-gradient(45deg, $add-color 50%, transparent 50%),
+    background-image: linear-gradient(45deg, $add-color 50%, transparent 50%),
       linear-gradient(135deg, transparent 50%, $add-color 50%);
-    background-position:
-      calc(100% - 15px) 1em,
-      calc(100% - 20px) 1em;
-    background-size:
-      5px 5px,
-      5px 5px;
+    background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em;
+    background-size: 5px 5px, 5px 5px;
     background-repeat: no-repeat;
     border-color: $add-color;
     outline: 0;
   }
+}
+.activity-aria {
+  $calendar-width: 7%;
+
+  display: flex;
+  margin-top: 35px;
+  .calendar-side {
+    width: $calendar-width;
+  }
+  .planner-side {
+    width: (100% - $calendar-width);
+  }
+}
+.planner-aria-header {
+  display: flex;
+  align-items: center;
+}
+.calendar-hour,
+.calendar-btnContainer {
+  min-width: (100% / 8);
+  display: flex;
+  justify-content: center;
+}
+.calendar-btnContainer {
+  flex-grow: 7;
+}
+.calendar-hour {
+  height: 85px;
+  width: 85px;
+  text-align: center;
+  line-height: 85px;
 }

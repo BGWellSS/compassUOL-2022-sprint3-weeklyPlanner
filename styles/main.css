@@ -357,6 +357,7 @@ body::after {
   height: 825px;
   background: url("./../../images/logoCompasso.svg") no-repeat;
   opacity: 0.7;
+  z-index: -1;
 }
 
 body {
@@ -367,6 +368,12 @@ body {
 .button {
   font-size: 1.7rem;
   font-weight: 400;
+}
+
+.calendar-week {
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 2rem;
 }
 
 .header-title {
@@ -470,6 +477,40 @@ body {
   outline: 0;
 }
 
+.activity-aria {
+  display: flex;
+  margin-top: 35px;
+}
+.activity-aria .calendar-side {
+  width: 7%;
+}
+.activity-aria .planner-side {
+  width: 93%;
+}
+
+.planner-aria-header {
+  display: flex;
+  align-items: center;
+}
+
+.calendar-hour,
+.calendar-btnContainer {
+  min-width: 12.5%;
+  display: flex;
+  justify-content: center;
+}
+
+.calendar-btnContainer {
+  flex-grow: 7;
+}
+
+.calendar-hour {
+  height: 85px;
+  width: 85px;
+  text-align: center;
+  line-height: 85px;
+}
+
 .button {
   padding: 10px 15px;
   border: 0;
@@ -487,4 +528,46 @@ body {
 .button-delete {
   background-color: #da2b40;
   color: #ffffff;
+}
+
+.calendar-week {
+  background-color: #3b3e45;
+  color: #ffffff;
+  min-width: 150px;
+  padding: 7px 8px;
+  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+  border-radius: 9px 9px 0px 0px;
+  border: none;
+  white-space: nowrap;
+}
+.calendar-week:not(.collapsed) {
+  min-width: 190px;
+}
+
+.calendar-mon {
+  background-color: #ffa246;
+}
+
+.calendar-tue {
+  background-color: #35e185;
+}
+
+.calendar-wed {
+  background-color: #6688ff;
+}
+
+.calendar-thu {
+  background-color: #b266ff;
+}
+
+.calendar-fri {
+  background-color: #66d1ff;
+}
+
+.calendar-sat {
+  background-color: #ff66d4;
+}
+
+.calendar-sun {
+  background-color: #ff6666;
 }/*# sourceMappingURL=main.css.map */

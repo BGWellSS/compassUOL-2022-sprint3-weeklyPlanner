@@ -12,7 +12,7 @@ body {
   &::after {
     $image-bg-size: 825px;
 
-    content: '';
+    content: "";
     position: absolute;
     right: -($image-bg-size * 0.2);
     bottom: -($image-bg-size * 0.3);
@@ -20,5 +20,6 @@ body {
     height: $image-bg-size;
     background: url("./../../images/logoCompasso.svg") no-repeat;
     opacity: 0.7;
+    z-index: -1;
   }
 }
