@@ -34,7 +34,7 @@ function updateCurrentTime() {
 // ---- Activity cards
 // - Create card HTML
 function createHTMLCard(card) {
-  return `<div class="cards card-w${card.weekDay}">
+  return `<div id="card-id${card.id}" class="cards card-w${card.weekDay}">
               <p class="card-text">${card.text}</p>
               <button type="button" class="button delete-card" onclick="deleteCard(${card.id})">
                 Apagar
@@ -54,7 +54,7 @@ function addCardtoList(card) {
 // - Delete card from cardsList
 function deleteCard(id) {
   for (let index = 0; index < cardsList.length; index++) {
-    if (cardsList[index] && cardsList[index].id == id ) {
+    if (cardsList[index] && cardsList[index].id == id) {
       delete cardsList[index];
     }
   }
@@ -85,6 +85,30 @@ function clearTimePanel() {
   calendarTimerDOM.innerHTML =
     '<div class="calendar-hour calendar-title"><span>Horário</span></div>';
 }
+// - 
+function verifyConflict(card) {
+  let cont = 0;
+  const tempDOM = document.getElementById(`card-id${card.id}`);
+  for (let index = 0; index < cardsList.length; index++) {
+    if (card.time == cardsList[index].time && card.weekDay == cardsList[index].weekDay) {
+      cont++;
+      if (cont > 1) {
+        card.isConflict = true;
+        tempDOM.classList.add("conflict");
+      } else {
+        card.isConflict = false;
+        tempDOM.classList.remove("conflict");
+      }
+    }
+  }
+}
+// - CheckConflict
+function checkConflict() {
+  for (let index = 0; index < cardsList.length; index++) {
+    let card = cardsList[index];
+    verifyConflict(card);
+  }
+}
 // - Update Panel cards
 function loadPanel() {
   sortCardsList();
@@ -103,6 +127,8 @@ function loadPanel() {
       }
     }
   }
+  checkConflict();
+  console.table(cardsList);
 }
 // - Process add button action
 function processAddButton() {

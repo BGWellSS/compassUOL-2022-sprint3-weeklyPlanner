@@ -618,6 +618,9 @@ body {
   padding: 5px;
   border-radius: 4px;
 }
+.cards.conflict {
+  display: inline-flex;
+}
 
 .card-w1 {
   border-left: 14px solid #ffa246;
