@@ -10,6 +10,8 @@ const cardTimeDOM = document.getElementById("input-actTime");
 const calendarTimerDOM = document.getElementById("calendar-side");
 // - Card List
 const cardsList = [];
+// - Card ID
+let cardId = 0;
 // - Button DOM -> Add card Activity
 const addActivityButton = document.getElementById("activity-add");
 // - Button DOM -> Save Local Storage
@@ -28,16 +30,16 @@ function updateCurrentTime() {
 }
 
 // ---- Activity cards
-// - Create card
+// - Create card HTML
 function createHTMLCard(card) {
   return `<div class="cards card-w${card.weekDay}">
               <p class="card-text">${card.text}</p>
-              <button type="button" class="button delete-card">
+              <button type="button" class="button delete-card" onclick="deleteCard(${card.id})">
                 Apagar
               </button>
             </div>`;
 }
-// - Create card time
+// - Create card time HTML
 function createHTMLCardTime(card) {
   return `<div class="calendar-hour timer-w${card.weekDay}">
               <p class="timer-text">${card.time}</p>
@@ -46,6 +48,15 @@ function createHTMLCardTime(card) {
 // - Add card to List
 function addCardtoList(card) {
   cardsList.push(card);
+}
+// - Delete card from cardsList
+function deleteCard(id) {
+  for (let index = 0; index < cardsList.length; index++) {
+    if (cardsList[index] && cardsList[index].id == id ) {
+      delete cardsList[index];
+    }
+  }
+  loadPanel();
 }
 // - Sort List
 function sortCardsList() {
@@ -67,36 +78,40 @@ function clearTimePanel() {
     '<div class="calendar-hour calendar-title"><span>Horário</span></div>';
 }
 // - Update Panel cards
-function updatePanel() {
+function loadPanel() {
   sortCardsList();
   let timeCheck = "";
   clearPanels();
   clearTimePanel();
   for (let index = 0; index < cardsList.length; index++) {
-    const weekPanelDOM = document.getElementById(
-      `weekDay${cardsList[index].weekDay}`
-    );
-    weekPanelDOM.innerHTML += cardsList[index].cardHtml;
-    if (timeCheck != cardsList[index].time) {
-      calendarTimerDOM.innerHTML += cardsList[index].timeHtml;
-      timeCheck = cardsList[index].time;
+    if (cardsList[index]) {
+      const weekPanelDOM = document.getElementById(
+        `weekDay${cardsList[index].weekDay}`
+      );
+      weekPanelDOM.innerHTML += cardsList[index].cardHtml;
+      if (timeCheck != cardsList[index].time) {
+        calendarTimerDOM.innerHTML += cardsList[index].timeHtml;
+        timeCheck = cardsList[index].time;
+      }
     }
   }
 }
 // - Process add button action
 function processAddButton() {
   const cardActivity = createActivity(
+    cardId,
     cardTextDOM.value,
     parseInt(cardWeekDayDOM.value),
     cardTimeDOM.value
   );
+  cardId++;
   if (checkCardEmpty(cardActivity)) {
     cardTextDOM.classList.remove("activity-empty");
     cardTextDOM.focus();
     cardActivity.cardHtml = createHTMLCard(cardActivity);
     cardActivity.timeHtml = createHTMLCardTime(cardActivity);
     addCardtoList(cardActivity);
-    updatePanel();
+    loadPanel();
   } else {
     cardTextDOM.classList.add("activity-empty");
     cardTextDOM.focus();
@@ -107,10 +122,12 @@ function saveToLocalStorage() {
   if (typeof Storage !== "undefined") {
     let storageValue = "";
     for (let index = 0; index < cardsList.length; index++) {
-      if (index !== 0) {
-        storageValue += lsCardSplitter;
+      if (cardsList[index]) {
+        if (index !== 0) {
+          storageValue += lsCardSplitter;
+        }
+        storageValue += `${cardsList[index].text}${lsAtributeSplitter}${cardsList[index].weekDay}${lsAtributeSplitter}${cardsList[index].time}`;
       }
-      storageValue += `${cardsList[index].text}${lsAtributeSplitter}${cardsList[index].weekDay}${lsAtributeSplitter}${cardsList[index].time}`;
     }
     localStorage.setItem("storageCards", storageValue);
   } else {
@@ -129,15 +146,17 @@ function lsChecker(storageVarName) {
     for (let index = 0; index < listToCheck.length; index++) {
       const cardAtributes = listToCheck[index].split(lsAtributeSplitter);
       const cardLS = createActivity(
+        cardId,
         cardAtributes[0],
         parseInt(cardAtributes[1]),
         cardAtributes[2]
       );
+      cardId++;
       cardLS.cardHtml = createHTMLCard(cardLS);
       cardLS.timeHtml = createHTMLCardTime(cardLS);
       addCardtoList(cardLS);
     }
-    updatePanel();
+    loadPanel();
   }
 }
 
