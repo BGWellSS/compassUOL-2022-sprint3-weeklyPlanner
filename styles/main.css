@@ -432,10 +432,11 @@ body {
 .planner-aria {
   position: relative;
   box-sizing: border-box;
-  height: 85vh;
+  height: 80vh;
   overflow: hidden;
   overflow-y: scroll;
   padding: 16px;
+  margin-right: 16px;
 }
 
 .activity-form {
@@ -457,6 +458,9 @@ body {
   box-sizing: border-box;
   width: 30%;
   padding-left: 60px;
+}
+.activity-text.activity-empty {
+  border: 2px solid #da2b40;
 }
 
 .activity-day {
@@ -509,6 +513,19 @@ body {
   width: 85px;
   text-align: center;
   line-height: 85px;
+}
+
+.planner-aria-activitys {
+  overflow-x: scroll;
+  transform: rotateX(180deg);
+  transition: all ease-in-out 0ms;
+  margin-top: 15px;
+}
+.planner-aria-activitys .collapse {
+  min-width: 400%;
+  transform: rotateX(180deg);
+  transition: all ease-in-out 0ms;
+  padding: 15px 0;
 }
 
 .button {
@@ -570,4 +587,88 @@ body {
 
 .calendar-sun {
   background-color: #ff6666;
+}
+
+.cards {
+  display: flex;
+  width: 512px;
+  height: 82px;
+  padding: 12px;
+  border: 1px solid #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10.5px);
+          backdrop-filter: blur(10.5px);
+  border-radius: 15px;
+}
+.cards .card-text {
+  width: 100%;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  font-size: 2rem;
+}
+.cards .delete-card {
+  background-color: #98031e;
+  color: #ffffff;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  width: auto;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.card-w1 {
+  border-left: 14px solid #ffa246;
+}
+
+.card-w2 {
+  border-left: 14px solid #35e185;
+}
+
+.card-w3 {
+  border-left: 14px solid #6688ff;
+}
+
+.card-w4 {
+  border-left: 14px solid #b266ff;
+}
+
+.card-w5 {
+  border-left: 14px solid #66d1ff;
+}
+
+.card-w6 {
+  border-left: 14px solid #ff66d4;
+}
+
+.card-w7 {
+  border-left: 14px solid #ff6666;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #DCDFE3;
+  border-radius: 8px;
+  width: 8px;
+  height: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ccced1;
 }/*# sourceMappingURL=main.css.map */

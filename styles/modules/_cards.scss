@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+// ---- Cards
+.cards {
+  display: flex;
+  width: 512px;
+  height: 82px;
+  padding: 12px;
+  border: 1px solid $white;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10.5px);
+  border-radius: 15px;
+
+  .card-text {
+    width: 100%;
+    backdrop-filter: none;
+    font-size: 2rem;
+  }
+  .delete-card {
+    background-color: $button-delete-card-bg;
+    color: $white;
+    backdrop-filter: none;
+    width: auto;
+    height: fit-content;
+    padding: 5px;
+    border-radius: 4px;
+  }
+}
+
+.card-w1 {
+  border-left: 14px solid $accent-color-1;
+}
+.card-w2 {
+  border-left: 14px solid $accent-color-2;
+}
+.card-w3 {
+  border-left: 14px solid $accent-color-3;
+}
+.card-w4 {
+  border-left: 14px solid $accent-color-4;
+}
+.card-w5 {
+  border-left: 14px solid $accent-color-5;
+}
+.card-w6 {
+  border-left: 14px solid $accent-color-6;
+}
+.card-w7 {
+  border-left: 14px solid $accent-color-7;
+}
