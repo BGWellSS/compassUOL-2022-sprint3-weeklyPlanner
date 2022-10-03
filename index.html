@@ -50,11 +50,14 @@
             title="Descrição da atividade"
             placeholder="Atividade"
             name="act-text"
+            id="input-actText"
             class="activity-input activity-text"
+            required
           />
           <select
             title="Seletor de dia da semana"
             name="act-weekDay"
+            id="input-actWeekDay"
             class="activity-input activity-day"
           >
             <optgroup label="Dia da semana">
@@ -72,9 +75,10 @@
             title="Horário da atividade"
             name="act-time"
             value="00:00"
+            id="input-actTime"
             class="activity-input activity-time"
           />
-          <button type="button" class="button button-add activity-add">
+          <button type="button" id="activity-add" class="button button-add activity-add">
             <i
               aria-hidden="true"
               title="Icone de adição"
@@ -93,7 +97,7 @@
         </form>
       </section>
       <section class="activity-aria">
-        <div class="calendar-side">
+        <div id="calendar-side" class="calendar-side">
           <div class="calendar-hour calendar-title"><span>Horário</span></div>
         </div>
         <div class="planner-side">
@@ -184,27 +188,13 @@
             </div>
           </div>
           <div id="week" class="planner-aria-activitys">
-            <div class="collapse show" data-parent="#week" id="weekDay1">
-              week1 week1 week1
-            </div>
-            <div class="collapse" data-parent="#week" id="weekDay2">
-              week2 week2 week2
-            </div>
-            <div class="collapse" data-parent="#week" id="weekDay3">
-              week3 week3 week3
-            </div>
-            <div class="collapse" data-parent="#week" id="weekDay4">
-              week4 week4 week4
-            </div>
-            <div class="collapse" data-parent="#week" id="weekDay5">
-              week5 week5 week5
-            </div>
-            <div class="collapse" data-parent="#week" id="weekDay6">
-              week6 week6 week6
-            </div>
-            <div class="collapse" data-parent="#week" id="weekDay7">
-              week7 week7 week7
-            </div>
+            <div class="collapse show" data-parent="#week" id="weekDay1"></div>
+            <div class="collapse" data-parent="#week" id="weekDay2"></div>
+            <div class="collapse" data-parent="#week" id="weekDay3"></div>
+            <div class="collapse" data-parent="#week" id="weekDay4"></div>
+            <div class="collapse" data-parent="#week" id="weekDay5"></div>
+            <div class="collapse" data-parent="#week" id="weekDay6"></div>
+            <div class="collapse" data-parent="#week" id="weekDay7"></div>
           </div>
         </div>
       </section>
