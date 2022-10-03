@@ -14,6 +14,8 @@ const cardsList = [];
 let cardId = 0;
 // - Button DOM -> Add card Activity
 const addActivityButton = document.getElementById("activity-add");
+// - Button DOM -> Delete all cards
+const deleteAllActivityButton = document.getElementById("act-removeAll");
 // - Button DOM -> Save Local Storage
 const saveLSDOM = document.getElementById("saver-localStorage");
 // - Button DOM -> Delete Local Storage
@@ -56,6 +58,12 @@ function deleteCard(id) {
       delete cardsList[index];
     }
   }
+  loadPanel();
+}
+// - Delete card from cardsList
+function deleteAllCards() {
+  cardsList.length = 0;
+  cardId = 0;
   loadPanel();
 }
 // - Sort List
@@ -172,3 +180,5 @@ saveLSDOM.onclick = saveToLocalStorage;
 deleteLSDOM.onclick = deleteLocalStorage;
 // - Button add activity
 addActivityButton.onclick = processAddButton;
+// - Button delete all activities
+deleteAllActivityButton.onclick = deleteAllCards;
