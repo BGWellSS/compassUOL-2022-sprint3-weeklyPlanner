@@ -511,6 +511,7 @@ body {
 .calendar-hour {
   height: 85px;
   width: 85px;
+  margin-bottom: 15px;
   text-align: center;
   line-height: 85px;
 }
@@ -519,7 +520,7 @@ body {
   overflow-x: scroll;
   transform: rotateX(180deg);
   transition: all ease-in-out 0ms;
-  margin-top: 15px;
+  margin-top: 22.5px;
 }
 .planner-aria-activitys .collapse {
   min-width: 400%;
@@ -532,7 +533,7 @@ body {
 }
 .planner-aria-activitys .collapse.show .cards {
   position: relative;
-  margin: 15px;
+  margin: 15px 15px 0 15px;
 }
 .planner-aria-activitys .collapse.show .cards.conflict {
   border-left-color: #F55D5D;
@@ -645,28 +646,63 @@ body {
   border-left: 14px solid #ffa246;
 }
 
+.timer-w1 {
+  background-color: #ffc893;
+  border-radius: 10px;
+}
+
 .card-w2 {
   border-left: 14px solid #35e185;
+}
+
+.timer-w2 {
+  background-color: #78ebad;
+  border-radius: 10px;
 }
 
 .card-w3 {
   border-left: 14px solid #6688ff;
 }
 
+.timer-w3 {
+  background-color: #b3c4ff;
+  border-radius: 10px;
+}
+
 .card-w4 {
   border-left: 14px solid #b266ff;
+}
+
+.timer-w4 {
+  background-color: #d9b3ff;
+  border-radius: 10px;
 }
 
 .card-w5 {
   border-left: 14px solid #66d1ff;
 }
 
+.timer-w5 {
+  background-color: #b3e8ff;
+  border-radius: 10px;
+}
+
 .card-w6 {
   border-left: 14px solid #ff66d4;
 }
 
+.timer-w6 {
+  background-color: #ffb3ea;
+  border-radius: 10px;
+}
+
 .card-w7 {
   border-left: 14px solid #ff6666;
+}
+
+.timer-w7 {
+  background-color: #ffb3b3;
+  border-radius: 10px;
 }
 
 /* width */

@@ -10,6 +10,10 @@ const cardTimeDOM = document.getElementById("input-actTime");
 const calendarTimerDOM = document.getElementById("calendar-side");
 // - Card List
 const cardsList = [];
+// - Week Times List
+const weekTimesList = [];
+// - Curent Week Day
+let currentWeekDay = 0;
 // - Card ID
 let cardId = 0;
 // - Button DOM -> Add card Activity
@@ -24,6 +28,21 @@ const deleteLSDOM = document.getElementById("delete-localStorage");
 const lsCardSplitter = "__@__";
 // - Storage Atributte splitter
 const lsAtributeSplitter = "_§_";
+// ---- Calendar Filters DOM
+// - Monday Filter
+const weekFilterMon = document.getElementsByClassName("calendar-mon");
+// - Filter
+const weekFilterTue = document.getElementsByClassName("calendar-tue");
+// - Filter
+const weekFilterWed = document.getElementsByClassName("calendar-wed");
+// - Filter
+const weekFilterThu = document.getElementsByClassName("calendar-thu");
+// - Filter
+const weekFilterFri = document.getElementsByClassName("calendar-fri");
+// - Filter
+const weekFilterSat = document.getElementsByClassName("calendar-sat");
+// - Filter
+const weekFilterSun = document.getElementsByClassName("calendar-sun");
 
 // ---------- Functions
 // - Time
@@ -58,12 +77,14 @@ function deleteCard(id) {
       delete cardsList[index];
     }
   }
+  loadWeekCalendar();
   loadPanel();
 }
 // - Delete card from cardsList
 function deleteAllCards() {
   cardsList.length = 0;
   cardId = 0;
+  loadWeekCalendar();
   loadPanel();
 }
 // - Sort List
@@ -80,18 +101,16 @@ function clearPanels() {
     document.getElementById(`weekDay${index}`).innerHTML = "";
   }
 }
-// - Clear Time Panel
-function clearTimePanel() {
-  calendarTimerDOM.innerHTML =
-    '<div class="calendar-hour calendar-title"><span>Horário</span></div>';
-}
-// - 
+// - Verify conflicts
 function verifyConflict(card) {
   let cont = 0;
   const tempDOM = document.getElementById(`card-id${card.id}`);
   for (let index = 0; index < cardsList.length; index++) {
     if (cardsList[index]) {
-      if (card.time == cardsList[index].time && card.weekDay == cardsList[index].weekDay) {
+      if (
+        card.time == cardsList[index].time &&
+        card.weekDay == cardsList[index].weekDay
+      ) {
         cont++;
         if (cont > 1) {
           card.isConflict = true;
@@ -104,7 +123,7 @@ function verifyConflict(card) {
     }
   }
 }
-// - CheckConflict
+// - Process check conflict
 function checkConflict() {
   for (let index = 0; index < cardsList.length; index++) {
     if (cardsList[index]) {
@@ -116,23 +135,25 @@ function checkConflict() {
 // - Update Panel cards
 function loadPanel() {
   sortCardsList();
-  let timeCheck = "";
+  let timeCheck = ["","","","","","",""];
   clearPanels();
   clearTimePanel();
+  initializeWeekList();
   for (let index = 0; index < cardsList.length; index++) {
     if (cardsList[index]) {
       const weekPanelDOM = document.getElementById(
         `weekDay${cardsList[index].weekDay}`
       );
       weekPanelDOM.innerHTML += cardsList[index].cardHtml;
-      if (timeCheck != cardsList[index].time) {
-        calendarTimerDOM.innerHTML += cardsList[index].timeHtml;
-        timeCheck = cardsList[index].time;
+      if (timeCheck[(cardsList[index].weekDay - 1)] != cardsList[index].time) {
+        weekTimesList[(cardsList[index].weekDay - 1)] += cardsList[index].timeHtml;
+        timeCheck[(cardsList[index].weekDay - 1)] = cardsList[index].time;
       }
     }
   }
   checkConflict();
-  cardTextDOM.value = '';
+  loadWeekCalendar();
+  cardTextDOM.value = "";
   cardTextDOM.focus();
 }
 // - Process add button action
@@ -198,6 +219,33 @@ function lsChecker(storageVarName) {
     loadPanel();
   }
 }
+// - Initialize Week Timers List
+function initializeWeekList() {
+  for (let index = 0; index < 7; index++) {
+    weekTimesList[index] = "";
+  }
+}
+// - Clear Time Panel
+function clearTimePanel() {
+  calendarTimerDOM.innerHTML =
+    '<div class="calendar-hour calendar-title"><span>Horário</span></div>';
+}
+// - Load week calendar
+function loadWeekCalendar() {
+  clearTimePanel();
+  calendarTimerDOM.innerHTML += weekTimesList[currentWeekDay];
+}
+function updateCurrentWeekDay(weekValue) {
+  currentWeekDay = weekValue;
+  loadWeekCalendar();
+}
+function monFilter() { updateCurrentWeekDay(0); }
+function tueFilter() { updateCurrentWeekDay(1); }
+function wedFilter() { updateCurrentWeekDay(2); }
+function thuFilter() { updateCurrentWeekDay(3); }
+function friFilter() { updateCurrentWeekDay(4); }
+function satFilter() { updateCurrentWeekDay(5); }
+function sunFilter() { updateCurrentWeekDay(6); }
 
 // ---------- Page Actions
 // - Page timer
@@ -205,6 +253,8 @@ setInterval(updateCurrentTime, 1000);
 dateDOM[0].textContent = getCurrentDay();
 // - Local Storage Checker
 lsChecker("storageCards");
+// - Week Lists
+initializeWeekList();
 // - Button Save Local Storage
 saveLSDOM.onclick = saveToLocalStorage;
 // - Button Exclude Local Storage
@@ -213,3 +263,11 @@ deleteLSDOM.onclick = deleteLocalStorage;
 addActivityButton.onclick = processAddButton;
 // - Button delete all activities
 deleteAllActivityButton.onclick = deleteAllCards;
+// ---- Calendar Buttons
+weekFilterMon[0].onclick = monFilter;
+weekFilterTue[0].onclick = tueFilter;
+weekFilterWed[0].onclick = wedFilter;
+weekFilterThu[0].onclick = thuFilter;
+weekFilterFri[0].onclick = friFilter;
+weekFilterSat[0].onclick = satFilter;
+weekFilterSun[0].onclick = sunFilter;

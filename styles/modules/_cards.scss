@@ -34,21 +34,49 @@
 .card-w1 {
   border-left: 14px solid $accent-color-1;
 }
+.timer-w1 {
+  background-color: lighten($accent-color-1, 15%);
+  border-radius: 10px;
+}
 .card-w2 {
   border-left: 14px solid $accent-color-2;
+}
+.timer-w2 {
+  background-color: lighten($accent-color-2, 15%);
+  border-radius: 10px;
 }
 .card-w3 {
   border-left: 14px solid $accent-color-3;
 }
+.timer-w3 {
+  background-color: lighten($accent-color-3, 15%);
+  border-radius: 10px;
+}
 .card-w4 {
   border-left: 14px solid $accent-color-4;
+}
+.timer-w4 {
+  background-color: lighten($accent-color-4, 15%);
+  border-radius: 10px;
 }
 .card-w5 {
   border-left: 14px solid $accent-color-5;
 }
+.timer-w5 {
+  background-color: lighten($accent-color-5, 15%);
+  border-radius: 10px;
+}
 .card-w6 {
   border-left: 14px solid $accent-color-6;
 }
+.timer-w6 {
+  background-color: lighten($accent-color-6, 15%);
+  border-radius: 10px;
+}
 .card-w7 {
   border-left: 14px solid $accent-color-7;
+}
+.timer-w7 {
+  background-color: lighten($accent-color-7, 15%);
+  border-radius: 10px;
 }
