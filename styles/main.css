@@ -527,6 +527,25 @@ body {
   transition: all ease-in-out 0ms;
   padding: 15px 0;
 }
+.planner-aria-activitys .collapse.show {
+  position: relative;
+}
+.planner-aria-activitys .collapse.show .cards {
+  position: relative;
+  margin: 15px;
+}
+.planner-aria-activitys .collapse.show .cards.conflict {
+  border-left-color: #F55D5D;
+}
+.planner-aria-activitys .collapse.show .cards.conflict::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  height: 4px;
+  width: 110%;
+  background-color: #F55D5D;
+}
 
 .button {
   padding: 10px 15px;

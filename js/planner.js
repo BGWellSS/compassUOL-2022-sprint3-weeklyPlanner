@@ -90,14 +90,16 @@ function verifyConflict(card) {
   let cont = 0;
   const tempDOM = document.getElementById(`card-id${card.id}`);
   for (let index = 0; index < cardsList.length; index++) {
-    if (card.time == cardsList[index].time && card.weekDay == cardsList[index].weekDay) {
-      cont++;
-      if (cont > 1) {
-        card.isConflict = true;
-        tempDOM.classList.add("conflict");
-      } else {
-        card.isConflict = false;
-        tempDOM.classList.remove("conflict");
+    if (cardsList[index]) {
+      if (card.time == cardsList[index].time && card.weekDay == cardsList[index].weekDay) {
+        cont++;
+        if (cont > 1) {
+          card.isConflict = true;
+          tempDOM.classList.add("conflict");
+        } else {
+          card.isConflict = false;
+          tempDOM.classList.remove("conflict");
+        }
       }
     }
   }
@@ -105,8 +107,10 @@ function verifyConflict(card) {
 // - CheckConflict
 function checkConflict() {
   for (let index = 0; index < cardsList.length; index++) {
-    let card = cardsList[index];
-    verifyConflict(card);
+    if (cardsList[index]) {
+      let card = cardsList[index];
+      verifyConflict(card);
+    }
   }
 }
 // - Update Panel cards
@@ -128,7 +132,8 @@ function loadPanel() {
     }
   }
   checkConflict();
-  console.table(cardsList);
+  cardTextDOM.value = '';
+  cardTextDOM.focus();
 }
 // - Process add button action
 function processAddButton() {
