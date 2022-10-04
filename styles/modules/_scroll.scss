@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+// ---- Scroll bar
+/* width */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $white;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #DCDFE3;
+  border-radius: 8px;
+  width: 8px;
+  height: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ccced1;
+}

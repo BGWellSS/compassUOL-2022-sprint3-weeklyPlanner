@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+// ---- Cards
+.cards {
+  display: flex;
+  width: 512px;
+  height: 82px;
+  padding: 12px;
+  border: 1px solid $white;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10.5px);
+  border-radius: 15px;
+
+  .card-text {
+    width: 100%;
+    backdrop-filter: none;
+    font-size: 2rem;
+  }
+  .delete-card {
+    background-color: $button-delete-card-bg;
+    color: $white;
+    backdrop-filter: none;
+    width: auto;
+    height: fit-content;
+    padding: 5px;
+    border-radius: 4px;
+  }
+
+  &.conflict {
+    display: inline-flex;
+  }
+}
+
+.card-w1 {
+  border-left: 14px solid $accent-color-1;
+}
+.timer-w1 {
+  background-color: lighten($accent-color-1, 15%);
+  border-radius: 10px;
+}
+.card-w2 {
+  border-left: 14px solid $accent-color-2;
+}
+.timer-w2 {
+  background-color: lighten($accent-color-2, 15%);
+  border-radius: 10px;
+}
+.card-w3 {
+  border-left: 14px solid $accent-color-3;
+}
+.timer-w3 {
+  background-color: lighten($accent-color-3, 15%);
+  border-radius: 10px;
+}
+.card-w4 {
+  border-left: 14px solid $accent-color-4;
+}
+.timer-w4 {
+  background-color: lighten($accent-color-4, 15%);
+  border-radius: 10px;
+}
+.card-w5 {
+  border-left: 14px solid $accent-color-5;
+}
+.timer-w5 {
+  background-color: lighten($accent-color-5, 15%);
+  border-radius: 10px;
+}
+.card-w6 {
+  border-left: 14px solid $accent-color-6;
+}
+.timer-w6 {
+  background-color: lighten($accent-color-6, 15%);
+  border-radius: 10px;
+}
+.card-w7 {
+  border-left: 14px solid $accent-color-7;
+}
+.timer-w7 {
+  background-color: lighten($accent-color-7, 15%);
+  border-radius: 10px;
+}
+
+.calendar-hour {
+  position: relative;
+
+  &.conflict {
+    background-color: lighten($conflict-color, 15%);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 40%;
+      left: -5px;
+      height: 20px;
+      width: 20px;
+      background-color: $conflict-color;
+      border-radius: 100%;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      height: 5px;
+      width: 400vw;
+      background-color: $conflict-color;
+      z-index: 1;
+    }
+  }
+}

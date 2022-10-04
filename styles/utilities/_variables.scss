@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+// ---- Color
+$white: #ffffff;
+$black: #000000;
+$add-color: #2cbe82;
+$delete-color: #da2b40;
+$conflict-color: #F55D5D;
+
+// - Header
+$header-color: #3b3e45;
+$header-bg: #ffffff;
+
+// - Main content
+$mainContent-color: #3b3e45;
+$mainContent-bg: transparent;
+
+// - Accent
+$accent-color-1: #ffa246;
+$accent-color-2: #35e185;
+$accent-color-3: #6688ff;
+$accent-color-4: #b266ff;
+$accent-color-5: #66d1ff;
+$accent-color-6: #ff66d4;
+$accent-color-7: #ff6666;
+
+// - Buttons
+$button-add-bg: $add-color;
+$button-add-color: $white;
+$button-delete-bg: $delete-color;
+$button-delete-color: $white;
+$button-delete-card-bg: #98031e;
+
+// ---- Font Family
+$primary-font-family: "Poppins", sans-serif;
+
+// ---- Font Sizes
+$core-font-size: 1.6rem;

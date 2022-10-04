@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+// ---- Basic styles
+html {
+  font-size: 62.5%; // convertion to 1rem == 10px
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  &::after {
+    $image-bg-size: 825px;
+
+    content: "";
+    position: absolute;
+    right: -($image-bg-size * 0.2);
+    bottom: -($image-bg-size * 0.3);
+    width: $image-bg-size;
+    height: $image-bg-size;
+    background: url("./../../images/logoCompasso.svg") no-repeat;
+    opacity: 0.7;
+    z-index: -1;
+  }
+}
