@@ -115,9 +115,11 @@ function verifyConflict(card) {
         if (cont > 1) {
           card.isConflict = true;
           tempDOM.classList.add("conflict");
+          addConflictTimer(card.weekDay, card.time);
         } else {
           card.isConflict = false;
           tempDOM.classList.remove("conflict");
+          removeConflictTimer(card.weekDay, card.time);
         }
       }
     }
@@ -132,10 +134,30 @@ function checkConflict() {
     }
   }
 }
+function addConflictTimer(weekDay, time) {
+  const cardTimer = document.getElementsByClassName(`timer-w${weekDay}`);
+  for (let index = 0; index < cardTimer.length; index++) {
+    const cardTimerValue =
+      cardTimer[index].getElementsByClassName(`timer-text`);
+    if (cardTimerValue[0].innerHTML == time) {
+      cardTimer[index].classList.add("conflict");
+    }
+  }
+}
+function removeConflictTimer(weekDay, time) {
+  const cardTimer = document.getElementsByClassName(`timer-w${weekDay}`);
+  for (let index = 0; index < cardTimer.length; index++) {
+    const cardTimerValue =
+      cardTimer[index].getElementsByClassName(`timer-text`);
+    if (cardTimerValue[0].innerHTML == time) {
+      cardTimer[index].classList.remove("conflict");
+    }
+  }
+}
 // - Update Panel cards
 function loadPanel() {
   sortCardsList();
-  let timeCheck = ["","","","","","",""];
+  let timeCheck = ["", "", "", "", "", "", ""];
   clearPanels();
   clearTimePanel();
   initializeWeekList();
@@ -145,14 +167,15 @@ function loadPanel() {
         `weekDay${cardsList[index].weekDay}`
       );
       weekPanelDOM.innerHTML += cardsList[index].cardHtml;
-      if (timeCheck[(cardsList[index].weekDay - 1)] != cardsList[index].time) {
-        weekTimesList[(cardsList[index].weekDay - 1)] += cardsList[index].timeHtml;
-        timeCheck[(cardsList[index].weekDay - 1)] = cardsList[index].time;
+      if (timeCheck[cardsList[index].weekDay - 1] != cardsList[index].time) {
+        weekTimesList[cardsList[index].weekDay - 1] +=
+          cardsList[index].timeHtml;
+        timeCheck[cardsList[index].weekDay - 1] = cardsList[index].time;
       }
     }
   }
-  checkConflict();
   loadWeekCalendar();
+  checkConflict();
   cardTextDOM.value = "";
   cardTextDOM.focus();
 }
@@ -238,14 +261,29 @@ function loadWeekCalendar() {
 function updateCurrentWeekDay(weekValue) {
   currentWeekDay = weekValue;
   loadWeekCalendar();
+  checkConflict();
 }
-function monFilter() { updateCurrentWeekDay(0); }
-function tueFilter() { updateCurrentWeekDay(1); }
-function wedFilter() { updateCurrentWeekDay(2); }
-function thuFilter() { updateCurrentWeekDay(3); }
-function friFilter() { updateCurrentWeekDay(4); }
-function satFilter() { updateCurrentWeekDay(5); }
-function sunFilter() { updateCurrentWeekDay(6); }
+function monFilter() {
+  updateCurrentWeekDay(0);
+}
+function tueFilter() {
+  updateCurrentWeekDay(1);
+}
+function wedFilter() {
+  updateCurrentWeekDay(2);
+}
+function thuFilter() {
+  updateCurrentWeekDay(3);
+}
+function friFilter() {
+  updateCurrentWeekDay(4);
+}
+function satFilter() {
+  updateCurrentWeekDay(5);
+}
+function sunFilter() {
+  updateCurrentWeekDay(6);
+}
 
 // ---------- Page Actions
 // - Page timer

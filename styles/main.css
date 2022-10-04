@@ -538,15 +538,6 @@ body {
 .planner-aria-activitys .collapse.show .cards.conflict {
   border-left-color: #F55D5D;
 }
-.planner-aria-activitys .collapse.show .cards.conflict::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -10%;
-  height: 4px;
-  width: 110%;
-  background-color: #F55D5D;
-}
 
 .button {
   padding: 10px 15px;
@@ -703,6 +694,33 @@ body {
 .timer-w7 {
   background-color: #ffb3b3;
   border-radius: 10px;
+}
+
+.calendar-hour {
+  position: relative;
+}
+.calendar-hour.conflict {
+  background-color: #f9a5a5;
+}
+.calendar-hour.conflict::after {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: -5px;
+  height: 20px;
+  width: 20px;
+  background-color: #F55D5D;
+  border-radius: 100%;
+}
+.calendar-hour.conflict::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  height: 5px;
+  width: 400vw;
+  background-color: #F55D5D;
+  z-index: 1;
 }
 
 /* width */

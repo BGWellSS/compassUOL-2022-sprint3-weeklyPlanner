@@ -117,16 +117,6 @@
 
         &.conflict {
           border-left-color: $conflict-color;
-
-          &::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: -10%;
-            height: 4px;
-            width: 110%;
-            background-color: $conflict-color;
-          }
         }
       }
     }

@@ -80,3 +80,32 @@
   background-color: lighten($accent-color-7, 15%);
   border-radius: 10px;
 }
+
+.calendar-hour {
+  position: relative;
+
+  &.conflict {
+    background-color: lighten($conflict-color, 15%);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 40%;
+      left: -5px;
+      height: 20px;
+      width: 20px;
+      background-color: $conflict-color;
+      border-radius: 100%;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      height: 5px;
+      width: 400vw;
+      background-color: $conflict-color;
+      z-index: 1;
+    }
+  }
+}
